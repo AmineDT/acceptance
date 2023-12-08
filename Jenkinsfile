@@ -42,9 +42,11 @@ pipeline {
                 sh 'docker run -d --rm -p 8765:8081 --name calculator localhost:5000/calculator'
             }
         }
-        stage('Test acceptation') {
-            sleep 60
-            sh 'chmod +x acceptance_test.sh && ./acceptance_test.sh'
+        stage("Test d'acceptation") {
+            steps {
+                sleep 60
+                sh 'chmod +x acceptance_test.sh && ./acceptance_test.sh'
+            }
         }
     }
     post {
