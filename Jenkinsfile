@@ -51,6 +51,9 @@ pipeline {
     }
     post {
         always {
+            mail to: 'amine.elbakkouri@outlook.com',
+            subject: "Cher lion Votre compilation est terminée: ${currentBuild.fullDisplayName}",
+            body: " Votre build est accompli, Veuilez vérifier: ${env.BUILD_URL}"
             sh 'docker stop calculator'
         }
     }
